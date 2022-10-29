@@ -4,7 +4,7 @@ class App extends React.Component {
   state = {
     breakCount: 5,
     sessionCount: 25,
-    clockCount: 25 * 60,
+    clockCount: 25*60,
     currentTimer: 'Session',
     isPlaying: false
   }
@@ -45,8 +45,8 @@ class App extends React.Component {
             currentTimer: (currentTimer === 'Session') ? 'Break' : 'Session',
             clockCount: (currentTimer === 'Session') ? (breakCount * 60) : (sessionCount * 60)
           });
-          
           audio.play();
+          console.log(document.getElementById('beep'))
         } else {
           this.setState({
             clockCount: clockCount - 1
@@ -70,6 +70,7 @@ class App extends React.Component {
     
     audio.pause();
     audio.currentTime = 0;
+    
   }
 
   convertToTime = (count) => {
